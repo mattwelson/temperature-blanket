@@ -27,7 +27,7 @@ export function SettingsDrawer({
       <DrawerContent>
         <DrawerHeader>
           <h2 className="text-lg font-bold font-serif">Suggested Cities</h2>
-          <div className="flex gap-4 overflow-x-auto">
+          <div className="flex flex-col sm:flex-row gap-4 overflow-x-auto">
             {suggested.map((city) => {
               const isActive =
                 city.lat === active.lat && city.long === active.long;
