@@ -54,7 +54,10 @@ export function SettingsDrawer({
           <div className="flex lg:gap-4 overflow-x-auto flex-col lg:flex-row ">
             {theme.map((c) => (
               <div
-                className={cn("flex lg:w-32 lg:h-20 lg:rounded font-bold text-center items-center")}
+                key={c.max}
+                className={cn(
+                  "flex lg:w-32 lg:h-20 lg:rounded font-bold text-center items-center"
+                )}
                 style={{ backgroundColor: c.colour }}
               >
                 {c.description}
