@@ -31,7 +31,6 @@ export function SettingsDrawer({
             {suggested.map((city) => {
               const isActive =
                 city.lat === active.lat && city.long === active.long;
-              console.log({ city, isActive, active });
               return (
                 <Link
                   key={city.name}
