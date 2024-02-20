@@ -1,5 +1,5 @@
-import { getTemperatureColour } from "@/lib/theme";
+import { defaultTheme, getTemperatureColour } from "@/lib/theme";
 
-export function temperaturesToColours(temperatures: number[]){
-    return temperatures.map(t => getTemperatureColour(t))
+export function temperaturesToColours(temperatures: number[], theme: typeof defaultTheme){
+    return temperatures.map(t => getTemperatureColour(t, theme))
 } 

@@ -13,12 +13,14 @@ import { Button } from "@/components/ui/button";
 import { suggested } from "@/lib/temperature/suggested";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { defaultTheme } from "@/lib/theme";
 
 export function SettingsDrawer({
   active,
 }: {
   active: { lat: number; long: number };
 }) {
+  const theme = defaultTheme;
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -27,7 +29,7 @@ export function SettingsDrawer({
       <DrawerContent>
         <DrawerHeader>
           <h2 className="text-lg font-bold font-serif">Suggested Cities</h2>
-          <div className="flex flex-col sm:flex-row gap-4 overflow-x-auto">
+          <div className="flex flex-wrap justify-center sm:justify-start sm:flex-nowrap sm:flex-row gap-4 overflow-x-auto">
             {suggested.map((city) => {
               const isActive =
                 city.lat === active.lat && city.long === active.long;
@@ -47,6 +49,17 @@ export function SettingsDrawer({
                 </Link>
               );
             })}
+          </div>
+          <h2 className="text-lg font-bold font-serif">Colour Key</h2>
+          <div className="flex lg:gap-4 overflow-x-auto flex-col lg:flex-row ">
+            {theme.map((c) => (
+              <div
+                className={cn("flex lg:w-32 lg:h-20 lg:rounded font-bold text-center items-center")}
+                style={{ backgroundColor: c.colour }}
+              >
+                {c.description}
+              </div>
+            ))}
           </div>
         </DrawerHeader>
         <DrawerFooter>
